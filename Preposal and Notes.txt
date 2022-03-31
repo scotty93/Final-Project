@@ -18,12 +18,14 @@ I am still having trouble picturing the scope of the project. Like if I were to 
 it is significant enough for an A. Same for the Snake game - is just adding one special dot enough for an A or should I have a 
 variety of dots that have different abilities. 
 
+After some  thought I am between the Snake game with doing different color dots, I want them to be beneficial, but I want to throw one it that hurts the player.
+I really like the idea of the create your own adventure, but I really need to see if its within my capabilities.
 
 
 
 
 
-Need to comment what is my code, games website, raspberry pie, doesn’t have to be python language
+Need to comment what is my code, games website, raspberry pie, doesnâ€™t have to be python language
 
 Whatever is in a readme file 
 Add file, upload file, drag and drop to add file to repository, then press the commit button. Make sure it is public so that others can see.
