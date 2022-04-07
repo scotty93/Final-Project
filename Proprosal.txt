@@ -1,0 +1,44 @@
+# Proposal
+Kesare Mowrer
+CIS 1051
+Professor Rosen
+
+## What will (likely) be the title of your project?
+
+Fingerlings
+
+## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
+A choose your own adventure text-based game.
+
+## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
+
+I will be using the recommended programming language renpy. I would like it to have image objects, dialogue, auto-forward for some longer texts, and music. I am not completely sure on how it will be executed, but the user choices will call code to be executed. I would like it to have features beyond clicking. I would like some input like the user types in their name or solves a riddle/puzzle/flip a coin. I would like there to be an element of gambling – a choice between something that has a defined outcome and an option that is purely a gamble. I would like it to have some branches that lead off but resolve themselves to meet the other options in the middle. 
+
+## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
+
+N/A
+
+## If planning to collaborate with 1 or 2 classmates for the final project, list their names, email addresses, and the names of their assigned TAs below.
+
+N/A
+
+## In the world of software, most everything takes longer to implement than you expect. And so it's not uncommon to accomplish less in a fixed amount of time than you hope.
+
+### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
+
+I would like it to tell an interesting story with user interaction that will demonstrate skills that I have developed throughout this semester.
+
+### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
+
+I would like to create a choose your own adventure game that has one starting point, three or four mid points, and three possible end points.
+
+### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
+
+The ultimate, best outcome is a game with music, images, and user interaction beyond clicking an option (roll dice, do a puzzle, answer a question).
+
+## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
+
+First step is to find out how to run this ren’py download. I will first need to create a story that has a start and two endings. Then I will come up with several alternative mid points. I will need to learn how to program in ren’py, it seems pretty user friendly and there is a bunch of youtube videos that may help. Once the story is ready, I will start with programming the start, two favorite midpoints, and two endings. If I have more time in the end, I will keep adding to it until the due date. 
+The number one skill I will need to hone is to not overcomplicate it and ask for help before I run in circles for hours. 
+
+
