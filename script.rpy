@@ -19,8 +19,10 @@ image side monster1 = "monster1"
 define villageC = Character("Hermit Cove Citizens", color = "#FF00FF", what_prefix = '"', what_suffix ='"')
 define frank = Character("Frank", image = "frank", color = "#50FF60", what_prefix = '"', what_suffix ='"')
 image side frank = "frank"
+define villageF = Character("Odenwald Villagers", color = "#FF5030",  what_prefix = '"', what_suffix ='"')
 # how i learned about images https://www.bing.com/videos/search?q=image+over+background+ren+py&&view=detail&mid=BD9A6F2659E01DD72AE4BD9A6F2659E01DD72AE4&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dimage%2520over%2520background%2520ren%2520py%26qs%3Dn%26form%3DQBVDMH%26%3D%2525eManage%2520Your%2520Search%2520History%2525E%26sp%3D-1%26pq%3Dimage%2520over%2520background%2520ren%2520py%26sc%3D0-28%26sk%3D%26cvid%3DA6E3230776A241B782BDB9F3D375C8C3
 #how i learned about side images https://www.bing.com/videos/search?q=side+inage+character+renpy&&view=detail&mid=7DD294B40EF2D27FB5747DD294B40EF2D27FB574&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dside%2Binage%2Bcharacter%2Brenpy%26go%3DSearch%26qs%3Dds%26form%3DQBVDMH
+#all images for this game were downloaded from Pixabay
 label start:
     scene forest2
     pause
@@ -235,7 +237,7 @@ label after1:
     jeff "Well that was interesting. I think you should gather more supplies before our next encounter. Here follow me I know just the place"
     jump market2
 label market2:
-    scene store2
+    scene store3
     pause
     show lady2 with easeinright
     merchant2 "Who goes there? I may be old and weak, but my rifle is not!"
@@ -332,9 +334,8 @@ label meetjeff:
     with fade
     jeff "I hope you have the supplies you needed, we will need all the help we can get. Down the road is the city Hermit Cove. Oddly, the city folk have been unable to leave their homes due to unprecedented snowfall"
     jeff "These poor folks are scared to leave their houses, no work, no deliveries, no nothing! We must investigate this, it has not snowed in Hermit Cove for over 200 years!"
-    menu:
-        "I told you before, I only deal in matters of monsters, villians and bad hygiene":
-            jeff "There is a monster behind it all. I know it in my gut!"
+    you "I told you before, I only deal in matters of monsters, villians and bad hygiene"
+    jeff "There is a monster behind it all. I know it in my gut!"
     jump monster2
 
 label monster2:
@@ -451,10 +452,74 @@ label talkfrank:
             frank "Oh yes, I feel so rude. My name is Frank Stein, I live here in this castle with my Mad Father..uh..I mean God Father and my..my...my..wife"
             "Frank started blubbering"
             frank "She is missing. I am so worried for her, she does not know her way out of the castle, she could be anywhere."
-
-
+    menu:
+        "Help find wife?":
+            you "I will help you. See here Frank? There are tracks leading west toward an open field."
+            jump outhouse
+        "Take to villagers for reward":
+            you "Sorry Frank, I really need cash, so I am going to have to sell you to the villagers."
+            jump meetvillage
+label outhouse:
+    scene castle1
+    with fade
+    show outhouse1 at right
+    pause
+    frank "Hooonnneeyyy *crack* honey is that you in there?"
+    fbride "Oh Frank, darling, please don't come any close. Oh I am so embarrassed. I don't want you to here or smell this."
+    frank "But I can help you through this dear, my first pass after being reanimated was very painful too...please let me help you."
+    you "I might have exactly what you need."
+label poop:
+    menu:
+        "Give Frank earmuffs to muffle sound":
+            jump muffler
+        "Give Frank a daisy to mask smell":
+            jump flower
+        "No items to give":
+            jump lastmeeting
+label muffler:
+    if earmuffs == 0:
+        "You do not have any earmuffs"
+        jump poop
+    elif earmuffs >= 1:
+            if checkmuff >=1:
+                "You already gave Frank this item"
+                jump poop
+            else:
+                "This will save Mrs.Stein some embarrasment"
+                $earmuffs = earmuffs - 1
+                $checkmuff += 1
+                $money += 5
+                "Your Money has increased by 5"
+                jump poop
+label flower:
+    if flower == 0:
+        "You do not have a daisy"
+        jump poop
+    elif flower >= 1:
+        if checkflower >= 1:
+            "You already gave Frank a flower"
+            jump poop
+        else:
+        "This will help cover up the horrible smell"
+        frank "Thank you [you], we are newly weds, she is still very shy."
+        $strength += 2
+        $intellect += 1
+        $money += 2
+        $checkflower += 1
+        "Your Strength has increased 2, Intellect increased 1, money increased 1"
+        jump poop
 label meetvillage:
-
+    scene cabininwoods
+    with fade
+    scene woodinterior
+    with fade
+    pause
+    villageF "Thanks for bringing him in [you], we could pay you extra to bring his bride in."
+    "You ponder how far you are willing to go for money, when you start to look around the lodge."
+    "To your horror, you see your childhood heroes staring back at you."
+    show plaque
+    show shrek
+    pause
 
 return
 
