@@ -1,0 +1,131 @@
+#screen gameGUI:
+screen inventorybag:
+
+   imagebutton:
+       xalign 1.0
+       yalign 0.0
+       xoffset -30
+       yoffset 30
+       idle "images/bg_bag_idle.png" #https://pixabay.com/vectors/bag-school-backpack-schoolbag-4989683/
+       action ShowMenu("StatsUI")
+        #hovered Show("displayTextScreen", displayText = "View #Stats"
+       #unhovered Hide("displayTextScreen")
+screen StatsUI:
+   add "images/bg_back_idle.jpg"  #https://pixabay.com/illustrations/gothic-background-roses-#rosenstock-4872421/
+   frame:
+       xalign 0.5
+       yalign 0.5
+       xpadding 30
+       ypadding 30
+       hbox:
+           spacing 40
+           vbox:
+               spacing 10
+               text "Strength" size 40
+               text "Intellect" size 40
+               text "Luck" size 40
+               text "Earmuffs" size 40
+               text "Daisy" size 40
+               text "Coughdrop" size 40
+               text "Lotion" size 40
+               text "Money" size 40
+           vbox:
+               spacing 10
+               text "[strength]" size 40
+               text "[intellect]" size 40
+               text "[luck]" size 40
+               text "[earmuffs]" size 40
+               text "[daisy]" size 40
+               text "[coughDrop]" size 40
+               text "[lotion]" size 40
+               text "[money]" size 40
+   imagebutton:
+       xalign 1.0
+       yalign 0.0
+       xoffset -30
+       yoffset 30
+       idle "images/button.png" #https://pixabay.com/illustrations/skull-dangerous-button-icon-back-1426813/
+       action Return()
+
+# I copied code from this video to set the inventory button
+#https://www.bing.com/videos/search?q=how+to+display+stats+on+renpy&ru=%2fvideos%2fsearch%3fq%3dhow%2bto%2bdisplay%2bstats%2bon%2brenpy%26go%3dSearch%26qs%3dds%26form%3dQBVDMH&view=detail&mid=334FB983930560F85D84334FB983930560F85D84&&FORM=VDRVRV
+image merchant:
+    "merchant.jpg"
+    size(1280,850)
+image villagebanchee:
+    "villagebanchee.jpg"
+    size(1280,720)
+image store3:
+    "store3.jpg"
+    size(1280,720)
+image mordor:
+    "mordor.jpg"
+    size(1280,720)
+image forest4:
+    "forest4.jpg"
+    size(1280,720)
+image woodinterior:
+    "woodinterior.jpg"
+    size(1280,720)
+image deck:
+    "deck.png"
+    size(200, 337)
+image deck1:
+    "deck1.png"
+    size(200, 337)
+image deck2:
+    "deck2.png"
+    size(200, 337)
+image deck3:
+    "deck3.png"
+    size(200,337)
+image queen: #https://pixabay.com/vectors/playing-card-queen-clubs-card-deck-161484/
+    "queen.png"
+    size(200,337)
+image king:
+    "king.png" #https://pixabay.com/vectors/playing-card-king-card-deck-deck-161492/
+    size(200,337)
+image jack:
+    "jack.png" #https://pixabay.com/vectors/playing-card-knave-card-deck-deck-161493/
+    size(200,337)
+image joker:
+    "joker.png"
+    size(200,337) #https://pixabay.com/vectors/joker-card-recreation-games-poker-28361/
+image you:
+    "you.png"
+    size(150,180)
+image fbride:
+    "fbride.jpg"
+    size(150,180)
+image jeff2:
+    "jeff2.png"
+    size(150,180)
+image faceold:
+    "faceold.jpg"
+    size(150,180)
+image minigol:
+    "minigol.png"
+    size(150,180)
+image skull:
+    "skull.png"
+    size(150,180)
+image snowing:
+    "snowing.png"  #https://pixabay.com/vectors/snowflakes-snow-winter-ice-cold-2031353/
+    animation
+    yalign 0.0
+    easeout 0.4 yalign 0.25
+    easein 0.4 yalign 0.0
+    easeout 0.6 yalign 0.25
+    repeat
+image banshee:
+    "banshee.png"
+    parallel:
+        linear 1.0 xalign 0.0
+        linear 1.0 xalign 1.0
+        repeat
+    parallel:
+        linear 1.3 yalign 1.0
+        linear 1.3 yalign 0.0
+        repeat
+#got this code from the tutorial in Renpy
+#this makes the banshee bounce around
