@@ -12,6 +12,8 @@ default village_roll = 0
 default your_roll = 0
 define jeff = Character("Jeff", image = "jeff", who_color = "#ffcc00", what_prefix = '"', what_suffix ='"')
 image side jeff = "jeff"
+define jeff2 = Character("Jeff", image = "bezos", who_color = "#ffcc00", what_prefix = '"', what_suffix ='"')
+image side jeff2 = "bezos"
 define merchant = Character("Merchant Molluck", image = "molluck", who_color = "#0020FF", what_prefix = '"', what_suffix ='"')
 image side molluck= "molluck"
 define goll = Character("Gollum", image = "minigol", who_color="#90554D", what_prefix = '"', what_suffix ='"') #https://www.pngaaa.com/download/2454929
@@ -25,7 +27,7 @@ define villageC = Character("Hermit Cove Citizens", color = "#FF00FF", what_pref
 define frank = Character("Frank", image = "frank", color = "#50FF60", what_prefix = '"', what_suffix ='"')
 image side frank = "frank"
 define villageF = Character("Odenwald Villagers", color = "#FF5030",  what_prefix = '"', what_suffix ='"')
-define fbride = Character("Bride of Frank", image = "bride", color = "#40FF70", what_prefix = '"', what_suffix ='"')
+define fbride = Character("Bride of Frank", image = "bride", color = "#40FF70", what_prefix = '"', what_suffix ='"') #https://www.deviantart.com/chelseageter/art/The-Bride-561708053
 image side fbride = "bride"
 # how i learned about images https://www.bing.com/videos/search?q=image+over+background+ren+py&&view=detail&mid=BD9A6F2659E01DD72AE4BD9A6F2659E01DD72AE4&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dimage%2520over%2520background%2520ren%2520py%26qs%3Dn%26form%3DQBVDMH%26%3D%2525eManage%2520Your%2520Search%2520History%2525E%26sp%3D-1%26pq%3Dimage%2520over%2520background%2520ren%2520py%26sc%3D0-28%26sk%3D%26cvid%3DA6E3230776A241B782BDB9F3D375C8C3
 #how i learned about side images https://www.bing.com/videos/search?q=side+inage+character+renpy&&view=detail&mid=7DD294B40EF2D27FB5747DD294B40EF2D27FB574&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dside%2Binage%2Bcharacter%2Brenpy%26go%3DSearch%26qs%3Dds%26form%3DQBVDMH
@@ -37,7 +39,7 @@ image side fbride = "bride"
 #title photo https://pixabay.com/illustrations/werewolf-giant-forest-tree-beast-6033047/
 label start:
     scene forest2
-    play sound "audio/price-of-freedom.MP3"
+    #play sound "audio/price-of-freedom.MP3"
     pause
     jeff "Hello detective. Thank you for meeting me. Your services have come highly recommended."
     $ you = renpy.input("What should I call you?")
@@ -85,9 +87,11 @@ label market:
 label sellitem:
     menu:
         "Attributes (5)":
-            jump attributes
+            call attributes
+            #jump attributes
         "Personal Items (1)":
-            jump items
+            #jump items
+            call items
         "Not interested in buying anything":
             jump firstmonster
 label attributes:
@@ -97,20 +101,20 @@ label attributes:
                 $ strength+= 1
                 $ money= money - 5
                 "Your strength has increased by one"
-                jump sellitem
+                #jump sellitem
             "Intellect":
                 $ intellect += 1
                 $ money= money - 5
                 "Your intellect has increased by one"
-                jump sellitem
+                #jump sellitem
             "Luck":
                 $ luck+= 1
                 $ money = money - 5
                 "Your luck has increased by one"
-                jump sellitem
+                #jump sellitem
     else:
         "You do not have enough money"
-        jump sellitem
+    jump sellitem
 label items:
     if money > 0:
         menu:
@@ -141,14 +145,14 @@ label items:
     else:
         "You do not have any money."
         jump sellitem
-label checkmoneyattribute:
-    if money < 5:
-        "You do not have enough money to upgrade your attribute"
-    jump sellitem
-label checkmoneyitem:
-    if money == 0:
-        "You have absolutely no money"
-    jump sellitem
+#label checkmoneyattribute:
+#    if money < 5:
+#        "You do not have enough money to upgrade your attribute"
+#    jump sellitem
+#label checkmoneyitem:
+#    if money == 0:
+#        "You have absolutely no money"
+#    jump sellitem
 label firstmonster:
     scene forest2
     with fade # just added see if works
@@ -278,9 +282,9 @@ label market2:
 label sellitem1:
     menu:
         "Attributes (5)":
-            jump attributes1
+            call attributes1
         "Personal Items (1)":
-            jump items1
+            call items1
         "Not interested in buying anything":
             merchant2 "Well hon, you be safe out there. I can feel in my bones something just isnt right"
             jump meetjeff
@@ -301,7 +305,10 @@ label attributes1:
                 $ luck+= 1
                 $ money = money - 5
                 "Your luck has increased by one"
-        call checkmoneyattribute1
+        #call checkmoneyattribute1
+    else:
+        "Not enough money"
+    jump sellitem1
 label items1:
     if money > 0:
         menu:
@@ -327,16 +334,10 @@ label items1:
                 $ earmuffs += 1
                 $ money = (money - 1)
                 "Your ear muff inventory has increased by one"
-        call checkmoneyitem1
-label checkmoneyattribute1:
-    if money < 5:
-        "You do not have enough money to upgrade your attribute"
+    else:
+        "You do not have any money"
     jump sellitem1
-label checkmoneyitem1:
-    if money == 0:
-        "You have absolutely no money"
-    jump sellitem1
-    #show screen inventory
+
 label meetjeff:
     scene forest4 #https://pixabay.com/illustrations/haunted-horror-mansion-old-night-7082900/
     with fade
@@ -637,7 +638,7 @@ label lastmeeting:
     you "I am really tired of programming...I mean fighting monsters, are we almost done."
     jeff "Go to the marketplace and spend all the money but don't waste your money on any more items you won't need them where I am taking you."
     call lastmarket
-#label follow:
+label follow:
     jeff "Last stop."
     "Jeff smiles slyly."
     jeff "Follow me"
@@ -649,14 +650,16 @@ label lastmarket:
         "You look familiar.":
             goll "No precious *gollum* *gollum*"
             goll "Master is expecting [you]sess."
-            call attributes
+            call sellitem2
         "I live under a rock.":
             goll "You have money in your nassty little pocketsess. Give Gollum precious" #ripped off LOTR books
-            call attributes
-#label sellitem2:
-#    menu:
-#        "Attributes (5)":
-#            jump attributes2
+            call sellitem2
+label sellitem2:
+    menu:
+        "Attributes (5)":
+            jump attributes2
+        "Not interested":
+            jump follow
 label attributes2:
     if money >= 5:
         menu:
@@ -678,6 +681,7 @@ label attributes2:
     else:
         "You do not have enough money"
         jump follow
+
 label mordor:
     scene mordor #https://pixabay.com/photos/lord-of-the-rings-fantasy-mordor-6761163/
     show bezos
@@ -692,18 +696,98 @@ label mordor:
             jeff2 "Pfft. Fine! Have it your way! Let's fight! Pick your poison!"
             jump trials
         "All I want are riches, why not.":
-            jump end2
+            jump endingtwo
 label trials:
     menu:
         "A battle of strength":
-            jeff2 "Arm wrestling match it is fool!"
-
+            jeff2 "Fisties it is!"
+            jump fisty
         "A battle of the brain":
             you "I have a game for you. Three decks shuffled randomly. If you draw any royal cards I win!"
+            jump braingame
         "Try your luck":
             you "Let's roll some dice for the win."
+            jump rollz
+label braingame:
+    scene pokertable #https://pixabay.com/illustrations/casino-gambling-happiness-roulette-4815934/
+    show deckl at right
+    show deckl at truecenter
+    show delk at left
+    pause
+    $pileOne = []
+    $pileTwo = []
+    $pileThree = []
+
+    #def create_shuffled_deck():
+    $deck = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]*4
+    $shuffdeck = renpy.random.shuffle(deck)
+        #return deck
+    #def three_piles():
+        #shuffdeck = create_shuffled_deck()
+    $pileOne= shuffdeck[0:17]
+    $pileTwo= shuffdeck[17:34]
+    $pileThree = shuffdeck[34:53]
+    $jeffwins = 0
+    $youwin=0
+    if pileOne[0] == "J" or pileOne[0] == "Q" or pileOne[0] == "K":
+        $jeffwins += 1
+        call pile1
+    elif pileTwo[0] == "J" or pileTwo[0] == "Q" or pileTwo[0] == "K":
+        $jeffwins += 1
+        call pile2
+    elif pileThree[0] == "J" or pileThree[0] == "Q" or pileThree[0] == "K":
+        $jeffwins += 1
+        call pile3
+    else:
+        $iwin += 1
+    jump results
+label results:
+    if jeffwins != 0:
+        jeff2 "Mwuahahaha I win!"
+        jump endingtwo
+    elif iwin != 0:
+        jeff2 "Noooooooo!"
+        jump endingone
+label pile1:
+    if pileone == "Q":
+        show queen at left
+    elif pilone == "K":
+        show king at left
+    elif pileone == "J":
+        show jack at left
+    else:
+        show joker at left
+return
+label pile2:
+    if piletwo == "Q":
+        show queen at truecenter
+    elif piletwo == "K":
+        show king at truecenter
+    elif piletwo == "J":
+        show jack at truecenter
+    else:
+        show joker at truecenter
+return
+label pile3:
+    if pilethree == "Q":
+        show queen at right
+    elif piletwo == "K":
+        show king at right
+    elif piletwo == "J":
+        show jack at right
+    else:
+        show joker at right
 return
 
+label fisty:
+    pass
+label rollz:
+    pass
+label endingone:
+    pass
+label endingtwo:
+    pass
+return
 #https://www.bing.com/videos/search?q=display+stats+in+renpy&&view=detail&mid=DDDE483394617542515ADDDE483394617542515A&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Ddisplay%2520stats%2520in%2520renpy%26qs%3Dn%26form%3DQBVR%26%3D%2525eManage%2520Your%2520Search%2520History%2525E%26sp%3D-1%26pq%3Ddisplay%2520stats%2520in%2520renpy%26sc%3D1-22%26sk%3D%26cvid%3D28DD3D7C3BB34B25BCE905EA1606FF83
 #https://www.youtube.com/watch?v=4O3uqLpvnKE
 #ctrl + s = save
